@@ -1,12 +1,21 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>はじめてのWebページ</title>
+  <title>JavaScript練習ページ</title>
 </head>
 <body>
-  <h1>こんにちは、世界！</h1>
-  <p>これは、初めて作ったWebページです。</p>
+  <h1>動きのあるページへようこそ</h1>
+
+  <p id="greeting">ここにメッセージが表示されます</p>
+
+  <button onclick="sayHello()">挨拶する</button>
+
+  <script>
+    function sayHello() {
+      document.getElementById("greeting").textContent = "こんにちは、シャーロックさん！";
+    }
+  </script>
 </body>
 </html>
+
