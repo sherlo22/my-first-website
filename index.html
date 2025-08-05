@@ -5,17 +5,55 @@
   <title>JavaScript練習ページ</title>
 </head>
 <body>
-  <h1>動きのあるページへようこそ</h1>
+  <h1>JavaScriptで動くページ</h1>
 
-  <p id="greeting">ここにメッセージが表示されます</p>
+  <!-- 名前入力と挨拶 -->
+  <h2>① あなたの名前は？</h2>
+  <input type="text" id="nameInput" placeholder="名前を入力">
+  <button onclick="greet()">挨拶する</button>
+  <p id="greeting"></p>
 
-  <button onclick="sayHello()">挨拶する</button>
+  <!-- 日付と時刻 -->
+  <h2>② 現在の日時</h2>
+  <button onclick="showDateTime()">今の日時を表示</button>
+  <p id="datetime"></p>
+
+  <!-- クイズ -->
+  <h2>③ ミニクイズ</h2>
+  <p>シャーロック・ホームズの職業は？</p>
+  <button onclick="checkAnswer('探偵')">探偵</button>
+  <button onclick="checkAnswer('医者')">医者</button>
+  <button onclick="checkAnswer('新聞記者')">新聞記者</button>
+  <p id="quizResult"></p>
+
+  <!-- 背景色を変更 -->
+  <h2>④ 背景色を変える</h2>
+  <button onclick="changeColor('lightyellow')">黄色っぽく</button>
+  <button onclick="changeColor('lightblue')">青っぽく</button>
+  <button onclick="changeColor('white')">元に戻す</button>
 
   <script>
-    function sayHello() {
-      document.getElementById("greeting").textContent = "こんにちは、シャーロックさん！";
+    function greet() {
+      const name = document.getElementById("nameInput").value;
+      document.getElementById("greeting").textContent = `${name}さん、こんにちは！`;
+    }
+
+    function showDateTime() {
+      const now = new Date();
+      const dateTimeString = now.toLocaleString(); // 日本の日時形式
+      document.getElementById("datetime").textContent = `現在時刻：${dateTimeString}`;
+    }
+
+    function checkAnswer(answer) {
+      const result = answer === "探偵" ? "正解！さすがです。" : "残念、不正解です。";
+      document.getElementById("quizResult").textContent = result;
+    }
+
+    function changeColor(color) {
+      document.body.style.backgroundColor = color;
     }
   </script>
 </body>
 </html>
+
 
